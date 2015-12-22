@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -26,5 +23,18 @@ namespace MVC5Course.Controllers
 
             return View();
         }
+
+        public ActionResult Test()
+        {
+            return View();
+        }
+
+        public ActionResult RazorView()
+        {
+            int[] a = new int[] { 1, 2, 3, 4, 5 };
+            
+            return PartialView(a);
+        }
+
     }
 }

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MVC5Course.Models.OrderLine>
+@{
+    Layout = null;
+}
+@using (Ajax.BeginForm("GetOrderLinesDetails", "Products", new AjaxOptions() { UpdateTargetId = "details" }))
+{
+    //new { onchange = "this.form.submit();" }
+    //$(this.form).trigger('submit');
+    @Html.DropDownList("LineNumber", null, "請選擇", new { onchange = "$(this.form).trigger('submit');"})
+    <input type="submit" value="搜尋"/>
+    <div>
+        <h2>OrderLines</h2>
+        <table class="table">
+            <tr>
+                <th>LineNumber</th>
+                <th>LineTotal</th>
+                <th>Qty</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.LineNumber</td>
+                    <td>@item.LineTotal</td>
+                    <td>@item.Qty</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { LineNumber = item.LineNumber, OrderId = item.OrderId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}

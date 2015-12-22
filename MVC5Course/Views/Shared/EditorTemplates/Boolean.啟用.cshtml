@@ -1,0 +1,10 @@
+﻿@model bool?
+@*
+    name 的部分，是從外部帶入，所以如果自己指定也會被蓋掉。
+*@
+<label>@Html.RadioButton("", true, Model.GetValueOrDefault())啟用</label>
+<label>@Html.RadioButton("", false, Model.GetValueOrDefault())停用</label>
+
+<script>
+    var getJavascriptId = @Html.Id("")
+</script>

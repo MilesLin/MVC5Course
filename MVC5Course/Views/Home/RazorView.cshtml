@@ -1,0 +1,24 @@
+﻿@model int[]
+
+
+@{
+    string space = " ";
+}
+
+@foreach (var item in @Model)
+{
+    @item
+}
+
+@foreach (var item in @Model)
+{
+    @item @space
+}
+
+<ul>
+    @foreach (var item in @Model)
+    {
+  <li>@item</li>
+    }
+</ul>
+

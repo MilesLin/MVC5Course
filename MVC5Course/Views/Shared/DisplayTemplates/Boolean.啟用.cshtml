@@ -1,0 +1,13 @@
+﻿@model bool?
+@*
+    name 的部分，是從外部帶入，所以如果自己指定也會被蓋掉。
+**@
+
+@if (Model.GetValueOrDefault())
+{
+    @Html.Label("啟用")
+}
+else
+{
+    @Html.Label("停用")
+}
